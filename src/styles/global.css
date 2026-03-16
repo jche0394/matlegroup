@@ -1,0 +1,38 @@
+@import "./variables.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--warm-white);
+  color: var(--black);
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+main {
+  display: block;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}

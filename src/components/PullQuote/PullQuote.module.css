@@ -1,0 +1,40 @@
+.section {
+  background: var(--dark-timber);
+  padding: 100px 60px;
+  text-align: center;
+}
+
+.quote {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-style: italic;
+  color: var(--warm-white);
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto 32px;
+  font-weight: 400;
+}
+
+.attr {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 80px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 24px;
+  }
+
+  .quote {
+    font-size: 24px;
+  }
+}
