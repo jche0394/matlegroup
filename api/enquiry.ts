@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await resend.emails.send({
       from: "Mantle Enquiries <hello@mantlegroup.com.au>",
-      to: "hello@mantlegroup.com.au",
+      to: "	mantlegroupau@gmail.com",
       subject: `New enquiry from ${name}`,
       replyTo: email,
       text: [
