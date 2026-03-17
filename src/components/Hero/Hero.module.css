@@ -115,25 +115,85 @@
   border-color: var(--sand);
 }
 
-/* ── Right image ── */
+.btnBooking {
+  background: transparent;
+  color: var(--sand);
+  border: 1px solid rgba(201, 185, 154, 0.7);
+  padding: 12px 20px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.btnBooking:hover {
+  background: rgba(201, 185, 154, 0.12);
+  border-color: var(--sand);
+  color: var(--warm-white);
+}
+
+/* ── Right video ── */
 
 .right {
   position: relative;
   overflow: hidden;
 }
 
-.img {
+.video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
-  filter: sepia(20%) contrast(1.05);
+  opacity: 0.88;
+  filter: sepia(8%) contrast(1.02);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right, var(--dark-timber) 0%, transparent 40%);
+}
+
+.bookingBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.bookingModal {
+  position: relative;
+  width: min(900px, 100% - 40px);
+  height: min(640px, 100% - 80px);
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
+}
+
+.bookingFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.bookingClose {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: transparent;
+  color: #111827;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1;
 }
 
 /* ── Stat bar ── */
