@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { BrandStory } from "./components/BrandStory";
@@ -564,6 +565,7 @@ export function App() {
          <Route path="/terms" element={<TermsPage />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 }
