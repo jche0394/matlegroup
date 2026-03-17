@@ -26,7 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: "Mantle Enquiries <hello@mantlegroup.com.au>",
       to: "hello@mantlegroup.com.au",
       subject: `New enquiry from ${name}`,
-      reply_to: email,
+      replyTo: email,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
