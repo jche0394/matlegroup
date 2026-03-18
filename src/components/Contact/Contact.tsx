@@ -4,13 +4,12 @@ import styles from "./Contact.module.css";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setError(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -35,10 +34,12 @@ export function Contact() {
         throw new Error("Failed to send enquiry");
       }
 
-      setHasSubmitted(true);
+      setPopupMessage("Thank you — your enquiry has been sent.");
+      setShowPopup(true);
       form.reset();
     } catch (err) {
-      setError("Something went wrong sending your enquiry. Please try again.");
+      setPopupMessage("Something went wrong sending your enquiry. Please try again.");
+      setShowPopup(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -85,22 +86,33 @@ export function Contact() {
             <textarea
               name="message"
               placeholder="Share any context that would be helpful for our first conversation"
-              required
             />
           </div>
 
           <button type="submit" className={styles.submit}>
             {isSubmitting ? "Sending..." : "Send Enquiry"}
           </button>
-          <p className={styles.note}>
-            We&rsquo;ll respond within one business day.
-          </p>
-          {hasSubmitted && !error && (
-            <p className={styles.note}>Thank you — your enquiry has been sent.</p>
-          )}
-          {error && <p className={styles.note}>{error}</p>}
         </form>
       </div>
+
+      {showPopup && (
+        <div
+          className={styles.popupBackdrop}
+          onClick={() => setShowPopup(false)}
+        >
+          <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className={styles.popupClose}
+              onClick={() => setShowPopup(false)}
+              aria-label="Close message"
+            >
+              ×
+            </button>
+            <p className={styles.popupText}>{popupMessage}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
