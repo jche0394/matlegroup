@@ -11,6 +11,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 import { FaqPage } from "./pages/Faq/FaqPage";
+import { HowItWorksPage } from "./pages/HowItWorks/HowItWorksPage";
 
 function HomePage() {
   return (
@@ -32,10 +33,6 @@ function ServicesPage() {
       <Contact />
     </main>
   );
-}
-
-function HowItWorksPage() {
-  return <main />;
 }
 
 function ContactPage() {

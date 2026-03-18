@@ -58,12 +58,55 @@
   color: var(--white);
   background: var(--black);
   padding: 12px 28px;
+  border-radius: 999px;
   text-decoration: none;
   transition: background 0.2s;
 }
 
 .cta:hover {
   background: var(--walnut);
+}
+
+.menuButton {
+  display: none;
+  border: 1px solid rgba(140, 123, 107, 0.18);
+  background: rgba(245, 240, 232, 0.75);
+  width: 44px;
+  height: 40px;
+  border-radius: 999px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuIcon {
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background: var(--black);
+  display: block;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--black);
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  top: 6px;
+}
+
+.mobileMenuBackdrop {
+  display: none;
 }
 
 @media (max-width: 900px) {
@@ -86,7 +129,49 @@
   }
 
   .cta {
-    padding: 10px 20px;
-    font-size: 12px;
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .mobileMenuBackdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 120;
+  }
+
+  .mobileMenu {
+    position: absolute;
+    top: 70px;
+    right: 16px;
+    left: 16px;
+    background: rgba(245, 240, 232, 0.98);
+    border: 1px solid rgba(140, 123, 107, 0.2);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    display: grid;
+    gap: 6px;
+  }
+
+  .mobileMenu a {
+    padding: 12px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--black);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: rgba(232, 224, 212, 0.55);
+  }
+
+  .mobileMenu a:hover {
+    background: rgba(232, 224, 212, 0.85);
   }
 }
