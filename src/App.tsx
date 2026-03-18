@@ -9,6 +9,7 @@ import { HowItWorks } from "./components/HowItWorks";
 import { PullQuote } from "./components/PullQuote";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 
 function HomePage() {
   return (
@@ -556,6 +557,7 @@ export function App() {
   return (
     <>
       <Nav />
+      <FirstVisitModal />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />

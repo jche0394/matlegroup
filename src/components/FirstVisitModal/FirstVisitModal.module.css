@@ -1,0 +1,251 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+}
+
+.modal {
+  position: relative;
+  width: min(980px, 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(245, 240, 232, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 123, 107, 0.18);
+  background: rgba(28, 25, 23, 0.35);
+  color: var(--warm-white);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 520px;
+}
+
+.left {
+  padding: 40px 38px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(245, 240, 232, 0.96);
+}
+
+.brand {
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--black);
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--walnut);
+  font-weight: 300;
+  margin-bottom: 22px;
+  max-width: 420px;
+}
+
+.primary {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, var(--black) 0%, #352f2b 60%, var(--walnut) 100%);
+  color: var(--warm-white);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  margin-bottom: 16px;
+}
+
+.primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.legal {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--stone);
+  line-height: 1.6;
+}
+
+.legal a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.right {
+  background: radial-gradient(
+      1100px 600px at 80% 30%,
+      rgba(201, 185, 154, 0.45) 0%,
+      rgba(232, 224, 212, 0.18) 40%,
+      rgba(28, 25, 23, 0) 70%
+    ),
+    linear-gradient(135deg, #e9e0d5 0%, #d9ccb8 50%, #ece6dd 100%);
+  padding: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: min(360px, 100%);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  padding: 22px 22px 18px;
+}
+
+.cardEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 16px;
+}
+
+.cardMetric {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cardNumber {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 46px;
+  color: var(--black);
+}
+
+.cardLabel {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--walnut);
+}
+
+.cardDivider {
+  height: 1px;
+  background: rgba(140, 123, 107, 0.25);
+  margin: 14px 0 14px;
+}
+
+.cardList {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  color: var(--walnut);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cardList li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--sand);
+  transform: translateY(-1px);
+}
+
+.booking {
+  height: min(760px, 85vh);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #ffffff;
+}
+
+.bookingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(140, 123, 107, 0.2);
+}
+
+.backBtn {
+  border: 1px solid rgba(140, 123, 107, 0.25);
+  background: var(--warm-white);
+  color: var(--black);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.bookingTitle {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--walnut);
+}
+
+.calendly {
+  height: 100%;
+  min-height: 640px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left {
+    padding: 32px 22px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}
+
