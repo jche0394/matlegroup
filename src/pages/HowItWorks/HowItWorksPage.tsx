@@ -113,21 +113,47 @@ export function HowItWorksPage() {
     const nodes = stepRefs.current.filter(Boolean) as HTMLElement[];
     if (nodes.length === 0) return;
 
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
-        if (visible[0]) {
-          const idx = Number(visible[0].target.getAttribute("data-step-index") || 0);
-          setActiveStepIndex(idx);
+    let raf = 0;
+    const computeActive = () => {
+      raf = 0;
+      // Anchor line roughly where the sticky rail sits visually
+      const anchorY = 220;
+      let bestIdx = 0;
+      let bestDist = Number.POSITIVE_INFINITY;
+
+      for (const node of nodes) {
+        const rect = node.getBoundingClientRect();
+        // Use the step's top edge distance to a stable anchor
+        const dist = Math.abs(rect.top - anchorY);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = Number(node.getAttribute("data-step-index") || 0);
         }
-      },
-      { root: null, threshold: [0.25, 0.45, 0.6], rootMargin: "-20% 0px -55% 0px" },
-    );
+      }
+
+      setActiveStepIndex((prev) => (prev === bestIdx ? prev : bestIdx));
+    };
+
+    const obs = new IntersectionObserver(() => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(computeActive);
+    });
 
     nodes.forEach((n) => obs.observe(n));
-    return () => obs.disconnect();
+    // Initial compute (on load)
+    computeActive();
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(computeActive);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      obs.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, []);
 
   const orchestrations = useMemo(
