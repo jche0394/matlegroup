@@ -11,11 +11,23 @@ export function Nav() {
         <li>
           <Link to="/services">Services</Link>
         </li>
+        <li className={styles.divider} aria-hidden="true">
+          |
+        </li>
         <li>
           <Link to="/how-it-works">How It Works</Link>
         </li>
+        <li className={styles.divider} aria-hidden="true">
+          |
+        </li>
         <li>
           <Link to="/contact">Contact</Link>
+        </li>
+        <li className={styles.divider} aria-hidden="true">
+          |
+        </li>
+        <li>
+          <Link to="/faq">FAQ</Link>
         </li>
       </ul>
       <a href="#contact" className={styles.cta}>

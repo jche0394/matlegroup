@@ -27,6 +27,15 @@
   list-style: none;
 }
 
+.divider {
+  color: rgba(140, 123, 107, 0.55);
+  font-size: 12px;
+  letter-spacing: 0;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
 .links a {
   font-size: 13px;
   letter-spacing: 0.08em;

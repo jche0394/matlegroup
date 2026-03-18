@@ -1,0 +1,242 @@
+.page {
+  background: var(--warm-white);
+  min-height: 100vh;
+  padding-top: 140px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.h1 {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  font-size: 64px;
+  line-height: 1.05;
+  margin: 0 0 28px;
+}
+
+.tabsWrap {
+  position: sticky;
+  top: 92px;
+  z-index: 40;
+  background: rgba(245, 240, 232, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(140, 123, 107, 0.25);
+  padding: 14px 0 16px;
+  margin-bottom: 34px;
+}
+
+.tabsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tab {
+  border: 1px solid rgba(140, 123, 107, 0.25);
+  background: rgba(232, 224, 212, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(28, 25, 23, 0.82);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.tab:hover {
+  background: rgba(245, 240, 232, 0.95);
+  border-color: rgba(140, 123, 107, 0.4);
+  color: var(--black);
+}
+
+.content {
+  max-width: 860px;
+  margin: 0 auto;
+  padding-bottom: 70px;
+}
+
+.section {
+  scroll-margin-top: 160px;
+  margin: 0 0 64px;
+}
+
+.sectionHeader {
+  margin-bottom: 14px;
+}
+
+.h2 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.count {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(92, 79, 66, 0.75);
+}
+
+.items {
+  display: grid;
+  gap: 12px;
+}
+
+.item {
+  border-bottom: 1px solid rgba(140, 123, 107, 0.25);
+  padding-bottom: 12px;
+}
+
+.q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  text-align: left;
+  padding: 10px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.qText {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black);
+  transition: color 0.15s ease;
+}
+
+.q:hover .qText {
+  color: var(--sand);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 123, 107, 0.25);
+  display: grid;
+  place-items: center;
+  color: rgba(92, 79, 66, 0.9);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.a {
+  padding: 6px 0 4px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(92, 79, 66, 0.95);
+  font-weight: 300;
+}
+
+.ctaSection {
+  padding: 0 0 84px;
+}
+
+.cta {
+  background: var(--black);
+  border-radius: 24px;
+  padding: 44px 28px;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: "Playfair Display", serif;
+  color: var(--warm-white);
+  font-weight: 400;
+  font-size: 42px;
+  margin: 0 0 12px;
+}
+
+.ctaBody {
+  font-family: Georgia, "Times New Roman", serif;
+  color: rgba(245, 240, 232, 0.78);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto 22px;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 14px 22px;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.ctaBtn:hover {
+  background: #e7e5e4;
+}
+
+.ctaLink {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 1px solid rgba(245, 240, 232, 0.35);
+  color: rgba(245, 240, 232, 0.92);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ctaLink:hover {
+  border-color: rgba(245, 240, 232, 0.65);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-top: 110px;
+  }
+
+  .h1 {
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+
+  .tabsWrap {
+    top: 76px;
+  }
+
+  .qText {
+    font-size: 16px;
+  }
+
+  .ctaTitle {
+    font-size: 30px;
+  }
+
+  .ctaBody {
+    font-size: 16px;
+  }
+}
+

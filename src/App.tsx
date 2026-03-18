@@ -10,6 +10,7 @@ import { PullQuote } from "./components/PullQuote";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
+import { FaqPage } from "./pages/Faq/FaqPage";
 
 function HomePage() {
   return (
@@ -563,6 +564,7 @@ export function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FaqPage />} />
          <Route path="/privacy" element={<PrivacyPage />} />
          <Route path="/terms" element={<TermsPage />} />
       </Routes>
