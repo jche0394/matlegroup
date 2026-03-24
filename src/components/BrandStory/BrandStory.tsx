@@ -6,7 +6,7 @@ export function BrandStory() {
       <div className={styles.imgWrap}>
         <img
           className={styles.img}
-          src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=pexels-binyaminmellish-106399.jpg&fm=jpg"
+          src="/main.jpg"
           alt="Fireplace mantle detail"
         />
         <div className={styles.accent} />

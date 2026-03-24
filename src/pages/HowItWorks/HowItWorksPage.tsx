@@ -159,6 +159,11 @@ export function HowItWorksPage() {
   const orchestrations = useMemo(
     () => [
       {
+        title: "Pantry & home organisation",
+        subtitle: "Order that stays ordered.",
+        meta: "Restocks, labelling, storage optimisation",
+      },
+      {
         title: "Mobile detailing",
         subtitle: "A discreet arrival. An immaculate finish.",
         meta: "Interior, exterior, weekly or monthly cadence",
@@ -172,11 +177,6 @@ export function HowItWorksPage() {
         title: "Housekeeping",
         subtitle: "Uncompromising standards, quietly maintained.",
         meta: "Deep cleans, rotation plans, linen coordination",
-      },
-      {
-        title: "Pantry & home organisation",
-        subtitle: "Order that stays ordered.",
-        meta: "Restocks, labelling, storage optimisation",
       },
       {
         title: "Preventative upkeep",
@@ -199,7 +199,7 @@ export function HowItWorksPage() {
         <div className={styles.heroMedia} aria-hidden="true">
           <video
             className={styles.heroVideo}
-            src="/Video Project 1.mp4"
+            src="/Gen-4 Turbo Slow cinematic push toward the facade of a large contemporary prestige home at dusk Warm interior light glowing through floor-to-ceiling windows Dark timber cladding, stone walls, deep e.mp4"
             autoPlay
             muted
             loop

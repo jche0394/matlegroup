@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
@@ -12,6 +13,14 @@ import { Footer } from "./components/Footer";
 import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 import { FaqPage } from "./pages/Faq/FaqPage";
 import { HowItWorksPage } from "./pages/HowItWorks/HowItWorksPage";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function HomePage() {
   return (
@@ -554,6 +563,7 @@ function TermsPage() {
 export function App() {
   return (
     <>
+      <ScrollToTop />
       <Nav />
       <FirstVisitModal />
       <Routes>
