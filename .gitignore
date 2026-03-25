@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Hero / large media — keep locally or host elsewhere; do not commit binaries
+public/*.mp4
+!public/hero-video.mp4
+public/*.webm
+public/*.mov
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
