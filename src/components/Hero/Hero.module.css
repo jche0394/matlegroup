@@ -52,23 +52,58 @@
 .overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+  /* Primary grade: lift under nav, readable mid, weight toward footer */
   background: linear-gradient(
     180deg,
-    rgba(28, 25, 23, 0.25) 0%,
-    rgba(28, 25, 23, 0.5) 45%,
-    rgba(28, 25, 23, 0.75) 100%
+    rgba(35, 31, 28, 0.38) 0%,
+    rgba(28, 25, 23, 0.14) 18%,
+    rgba(44, 40, 37, 0.28) 42%,
+    rgba(22, 19, 17, 0.62) 68%,
+    rgba(18, 15, 13, 0.88) 100%
   );
+}
+
+/* Warm “lit interior” halo — draws the eye to headline without flattening the whole frame */
+.overlayGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 72% 52% at 50% 36%,
+      rgba(245, 240, 232, 0.11) 0%,
+      rgba(232, 224, 212, 0.04) 38%,
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 110% 80% at 50% 118%,
+      rgba(201, 185, 154, 0.07) 0%,
+      transparent 48%
+    );
 }
 
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse 85% 70% at 50% 45%,
-    transparent 0%,
-    rgba(28, 25, 23, 0.35) 100%
-  );
   pointer-events: none;
+  /* Frame edges + slight top weight for premium “lens” feel */
+  background:
+    radial-gradient(
+      ellipse 140% 85% at 50% -5%,
+      rgba(28, 25, 23, 0.42) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 50% 85% at 0% 45%,
+      rgba(20, 17, 15, 0.38) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 85% at 100% 45%,
+      rgba(20, 17, 15, 0.38) 0%,
+      transparent 55%
+    );
 }
 
 /* ── Center column ── */
@@ -334,6 +369,15 @@
 @media (max-width: 640px) {
   .hero {
     padding-bottom: clamp(11rem, 28vh, 13rem);
+  }
+
+  .overlayGlow {
+    background: radial-gradient(
+      ellipse 92% 62% at 50% 34%,
+      rgba(245, 240, 232, 0.15) 0%,
+      rgba(232, 224, 212, 0.05) 42%,
+      transparent 66%
+    );
   }
 
   /* Compact “top pill”: tag + blurb side-by-side to avoid tall stacked layout */

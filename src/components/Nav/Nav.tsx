@@ -2,10 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Nav.module.css";
 
+const NAV_SOLID_THRESHOLD_PX = 72;
+
 export function Nav() {
   const { pathname } = useLocation();
-  const onHero = pathname === "/";
+  const onHome = pathname === "/";
+  /** On home: light nav on hero video; dark-on-glass after #story reaches the top */
+  const [pastHero, setPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const lightOnGlass = !onHome || pastHero;
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -19,6 +25,32 @@ export function Nav() {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!onHome) {
+      setPastHero(false);
+      return;
+    }
+
+    const updatePastHero = () => {
+      const story = document.getElementById("story");
+      if (!story) {
+        setPastHero(false);
+        return;
+      }
+      setPastHero(story.getBoundingClientRect().top < NAV_SOLID_THRESHOLD_PX);
+    };
+
+    updatePastHero();
+    const raf = requestAnimationFrame(updatePastHero);
+    window.addEventListener("scroll", updatePastHero, { passive: true });
+    window.addEventListener("resize", updatePastHero);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", updatePastHero);
+      window.removeEventListener("resize", updatePastHero);
+    };
+  }, [onHome]);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -50,7 +82,7 @@ export function Nav() {
 
   return (
     <nav
-      className={`${styles.nav} ${onHero ? styles.themeHero : styles.themePage}`}
+      className={`${styles.nav} ${lightOnGlass ? styles.themePage : styles.themeHero}`}
     >
       <Link to="/" className={styles.logo}>
         Mantle
@@ -93,6 +125,9 @@ export function Nav() {
             className={styles.mobileMenu}
             onClick={(e) => e.stopPropagation()}
           >
+            <Link to="/" onClick={closeMenu} className={styles.mobileHomeLink}>
+              Home
+            </Link>
             <Link to="/how-it-works" onClick={closeMenu}>
               How It Works
             </Link>
@@ -108,7 +143,11 @@ export function Nav() {
             <Link to="/faq" onClick={closeMenu}>
               FAQ
             </Link>
-            <a href="/#contact" onClick={closeMenu}>
+            <a
+              href="/#contact"
+              onClick={closeMenu}
+              className={styles.mobileEnquire}
+            >
               Enquire
             </a>
           </div>

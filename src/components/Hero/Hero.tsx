@@ -88,6 +88,7 @@ export function Hero() {
           />
         </div>
         <div className={styles.overlay} aria-hidden />
+        <div className={styles.overlayGlow} aria-hidden />
         <div className={styles.vignette} aria-hidden />
       </div>
 
