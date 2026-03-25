@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 
+/** Default playback id for https://player.mux.com/{id} (from Mux dashboard for this asset). */
+const DEFAULT_MUX_PLAYBACK_ID =
+  "PrK02RSeupnJwm1ADeG2GllQD01PQ802RVKoE1u5CtS8Uo";
+
+function muxHeroSrc(playbackId: string) {
+  const title = "hero-video";
+  const params = new URLSearchParams({
+    "metadata-video-title": title,
+    "video-title": title,
+    muted: "true",
+    autoplay: "true",
+    loop: "true",
+    controls: "false",
+  });
+  return `https://player.mux.com/${playbackId}?${params.toString()}`;
+}
+
 function IconArrowUpRight({ className }: { className?: string }) {
   return (
     <svg
@@ -55,18 +72,21 @@ function IconChevronDown({ className }: { className?: string }) {
 }
 
 export function Hero() {
+  const playbackId =
+    import.meta.env.VITE_MUX_PLAYBACK_ID ?? DEFAULT_MUX_PLAYBACK_ID;
+
   return (
     <section className={styles.hero}>
       <div className={styles.media}>
-        <video
-          className={styles.video}
-          src="/hero-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-label="Prestige Melbourne home exterior at dusk"
-        />
+        <div className={styles.iframeShell}>
+          <iframe
+            className={styles.muxIframe}
+            src={muxHeroSrc(playbackId)}
+            title="hero-video — background"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+          />
+        </div>
         <div className={styles.overlay} aria-hidden />
         <div className={styles.vignette} aria-hidden />
       </div>
