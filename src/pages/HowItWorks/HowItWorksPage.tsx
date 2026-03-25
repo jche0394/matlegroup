@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./HowItWorksPage.module.css";
 
 type Step = {
@@ -199,7 +200,7 @@ export function HowItWorksPage() {
         <div className={styles.heroMedia} aria-hidden="true">
           <video
             className={styles.heroVideo}
-            src="/Gen-4 Turbo Slow cinematic push toward the facade of a large contemporary prestige home at dusk Warm interior light glowing through floor-to-ceiling windows Dark timber cladding, stone walls, deep e.mp4"
+            src="/hero-video.mp4"
             autoPlay
             muted
             loop
@@ -227,9 +228,12 @@ export function HowItWorksPage() {
           >
             Book a private consultation
           </button>
-          <a className={styles.secondary} href="/services">
+          <Link
+            className={styles.secondary}
+            to={{ pathname: "/", hash: "services" }}
+          >
             Explore services
-          </a>
+          </Link>
         </div>
       </header>
 

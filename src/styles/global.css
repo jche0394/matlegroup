@@ -12,6 +12,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   background: var(--warm-white);
@@ -28,6 +34,15 @@ main {
 a,
 button {
   cursor: pointer;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {

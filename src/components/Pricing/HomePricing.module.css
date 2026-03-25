@@ -1,0 +1,214 @@
+.section {
+  background: var(--warm-white);
+  padding: 120px 60px;
+  scroll-margin-top: 7.5rem;
+}
+
+/* /pricing page: one section fills the view — padding-top clears fixed nav */
+.sectionStandalone {
+  padding-top: clamp(6.25rem, 12vw, 8rem);
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+.pageTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.h2 {
+  font-family: "Playfair Display", serif;
+  font-size: var(--heading-section);
+  line-height: 1.2;
+  color: var(--black);
+  font-weight: 400;
+  max-width: 26ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+.intro {
+  margin-top: 1.5rem;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--walnut);
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.75rem, 3.5vw, 2.25rem);
+  background: var(--plaster);
+  border: 1px solid rgba(140, 123, 107, 0.22);
+  border-radius: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(140, 123, 107, 0.38);
+  box-shadow: 0 16px 40px rgba(44, 40, 37, 0.08);
+}
+
+.model {
+  align-self: flex-start;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--dark-timber);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(44, 40, 37, 0.2);
+  background: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.1rem;
+}
+
+.cardTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.cardSubtitle {
+  margin: 0 0 1.25rem;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--walnut);
+  font-weight: 400;
+}
+
+.list {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  flex: 1;
+}
+
+.list li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--walnut);
+  font-weight: 300;
+  margin-bottom: 0.65rem;
+  padding-left: 0.2rem;
+}
+
+.list li:last-child {
+  margin-bottom: 0;
+}
+
+.foot {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding-top: 0.25rem;
+}
+
+.foot p {
+  margin: 0 0 1.25rem;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(92, 79, 66, 0.92);
+  font-weight: 400;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--warm-white);
+  background: var(--dark-timber);
+  border: 1px solid rgba(44, 40, 37, 0.5);
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  background: #3d3632;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 3px;
+}
+
+.faqLink {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--walnut);
+  text-underline-offset: 3px;
+}
+
+.faqLink:hover {
+  color: var(--black);
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 96px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 72px 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

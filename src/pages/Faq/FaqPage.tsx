@@ -205,7 +205,10 @@ export function FaqPage() {
               <a className={styles.ctaBtn} href="/#contact">
                 Contact us
               </a>
-              <Link className={styles.ctaLink} to="/services">
+              <Link
+                className={styles.ctaLink}
+                to={{ pathname: "/", hash: "services" }}
+              >
                 View services
               </Link>
             </div>

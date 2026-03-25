@@ -6,16 +6,19 @@ export interface Service {
   description: string;
   features: string[];
   differentiator: string;
+  /** Placeholder photography (replace with brand assets when ready). */
+  imageSrc: string;
+  imageAlt: string;
 }
 
 export const services: Service[] = [
   {
     num: "01",
-    tag: "Highest Value",
+    tag: "Renovations",
     title: "Renovation Project Management",
-    tagline: "We sit on your side of the table.",
+    tagline: "Your advocate — not the builder's.",
     description:
-      "Managing your builder, tradies, timeline and budget on your behalf. You receive weekly updates and never make a single site visit or contractor call.",
+      "We run the build on your behalf: builders and trades, programme, budget, and variations. You get concise weekly reporting; we handle site and contractor communications.",
     features: [
       "Builder and tradie management",
       "Budget tracking and reporting",
@@ -25,15 +28,17 @@ export const services: Service[] = [
     ],
     differentiator:
       "A dedicated person managing your interests across the entire project — not the builder's, not the architect's. Yours.",
+    imageSrc: "https://picsum.photos/seed/mantle-reno/960/640",
+    imageAlt:
+      "Placeholder image: architecture and construction of a prestige home",
   },
   {
     num: "02",
-    tag: "Monthly Retainer",
+    tag: "Retainer care",
     title: "Lifestyle Home Maintenance",
-    tagline:
-      "Everything your home needs, handled before you notice it needs it.",
+    tagline: "Checks, fixes, and admin — on a rhythm.",
     description:
-      "Proactive and reactive maintenance coordination on a monthly retainer. Seasonal checks, contractor scheduling, emergency response, and complete admin and invoicing.",
+      "Monthly retainer for the home you live in: planned inspections, contractor booking, emergency response, and consolidated invoicing — so small problems do not become urgent ones.",
     features: [
       "Seasonal property inspections",
       "Contractor scheduling",
@@ -43,14 +48,17 @@ export const services: Service[] = [
     ],
     differentiator:
       "A proactive maintenance calendar tailored to your specific property. We identify problems before you ever notice them.",
+    imageSrc: "https://picsum.photos/seed/mantle-home/960/640",
+    imageAlt:
+      "Placeholder image: warm interior of a well-maintained residence",
   },
   {
     num: "03",
-    tag: "Underserved Niche",
+    tag: "Away from home",
     title: "Absentee Property Management",
-    tagline: "Your eyes on the ground, wherever you are in the world.",
+    tagline: "Eyes on site when you can't be in Melbourne.",
     description:
-      "Full property oversight for clients who are travelling, living abroad, or own investment properties they cannot regularly visit. Your property is never unwatched.",
+      "For travel, work abroad, or investment stock you rarely visit: scheduled inspections, agreed reporting, utilities and mail coordination, and rapid contractor dispatch when something goes wrong.",
     features: [
       "Regular property inspections",
       "Weekly video walkthroughs",
@@ -59,6 +67,9 @@ export const services: Service[] = [
       "Photo and video reporting",
     ],
     differentiator:
-      "Structured weekly video walkthroughs sent directly to you, wherever you are. No other Melbourne home concierge does this.",
+      "Optional weekly video walkthroughs, delivered on a schedule you set — visibility without flying home for every detail.",
+    imageSrc: "https://picsum.photos/seed/mantle-away/960/640",
+    imageAlt:
+      "Placeholder image: residential street and property viewed from approach",
   },
 ];

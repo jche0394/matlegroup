@@ -48,14 +48,13 @@ export function Contact() {
   return (
     <section className={styles.section} id="contact">
       <div className={styles.left}>
-        <p className={styles.eyebrow}>Get in Touch</p>
-        <h2 className={styles.h2}>Tell us about your home.</h2>
+        <p className={styles.eyebrow}>Get in touch</p>
+        <h2 className={styles.h2}>What does your home need?</h2>
         <div className={styles.divider} />
         <p className={styles.body}>
-          We respond to every enquiry personally, usually within one business
-          day. If you&rsquo;re not sure which service fits your situation, just
-          tell us what&rsquo;s taking up your time — we&rsquo;ll work it out
-          from there.
+          We reply personally, usually within a business day. Renovation,
+          retainer care, or oversight while you&apos;re away — a few lines is
+          enough to start.
         </p>
       </div>
 
@@ -63,7 +62,7 @@ export function Contact() {
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
             <label>Full Name</label>
-            <input name="name" type="text" placeholder="Enter your full name" required />
+            <input name="name" type="text" placeholder="Name" required />
           </div>
 
           <div className={styles.field}>
@@ -71,21 +70,21 @@ export function Contact() {
             <input
               name="email"
               type="email"
-              placeholder="Enter your email address"
+              placeholder="Email"
               required
             />
           </div>
 
           <div className={styles.field}>
             <label>Phone Number</label>
-            <input name="phone" type="tel" placeholder="Enter your phone number" />
+            <input name="phone" type="tel" placeholder="Phone (optional)" />
           </div>
 
           <div className={styles.field}>
-            <label>Tell us about your situation</label>
+            <label>Message</label>
             <textarea
               name="message"
-              placeholder="Share any context that would be helpful for our first conversation"
+              placeholder="Renovation, retainer, or away-from-home oversight…"
             />
           </div>
 

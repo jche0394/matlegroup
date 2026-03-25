@@ -1,0 +1,4 @@
+.page {
+  min-height: 40vh;
+  background: var(--warm-white);
+}

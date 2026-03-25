@@ -1,47 +1,125 @@
+import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
+
+function IconArrowUpRight({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M7 17L17 7M7 7h10v10" />
+    </svg>
+  );
+}
+
+function IconPlay({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M8 5v14l11-7L8 5z" />
+    </svg>
+  );
+}
+
+function IconChevronDown({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
 
 export function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.left}>
-        <p className={styles.eyebrow}>Melbourne Home Management</p>
-        <h1 className={styles.h1}>
-          Your home,
-          <br />
-          taken completely
-          <br />
-          <em>under our mantle.</em>
-        </h1>
-        <p className={styles.sub}>
-          We manage your home, your renovation, and your property — so you never
-          have to think about it again.
-        </p>
-        <div className={styles.actions}>
-          <a href="#contact" className={styles.btnPrimary}>
-            Start a Conversation
-          </a>
-          <a href="#services" className={styles.btnGhost}>
-            Explore Services
-          </a>
-        </div>
-        <div className={styles.trustRow}>
-          <span className={styles.trustPill}>Discreet, relationship-based service</span>
-          <span className={styles.trustPill}>Insured and contractor-vetted</span>
-          <span className={styles.trustPill}>Based in inner Melbourne</span>
-        </div>
-      </div>
-
-      <div className={styles.right}>
+      <div className={styles.media}>
         <video
           className={styles.video}
-          src="/Gen-4 Turbo Slow cinematic push toward the facade of a large contemporary prestige home at dusk Warm interior light glowing through floor-to-ceiling windows Dark timber cladding, stone walls, deep e.mp4"
+          src="/hero-video.mp4"
           autoPlay
           muted
           loop
           playsInline
-          aria-label="Prestige Melbourne home"
+          aria-label="Prestige Melbourne home exterior at dusk"
         />
-        <div className={styles.overlay} />
+        <div className={styles.overlay} aria-hidden />
+        <div className={styles.vignette} aria-hidden />
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.announce}>
+          <span className={styles.announceTag}>Melbourne</span>
+          <span className={styles.announceText}>
+            Renovations, upkeep &amp; remote oversight — one team
+          </span>
+        </div>
+
+        <h1 className={styles.h1}>
+          <em>Your home,</em>
+          <br />
+          under our mantle.
+        </h1>
+
+        <p className={styles.sub}>
+          Your advocate on site. Proactive upkeep. Eyes on your property when
+          you&apos;re away — clear updates, no noise.
+        </p>
+
+        <div className={styles.actions}>
+          <a href="#contact" className={styles.btnPrimary}>
+            Get in touch
+            <IconArrowUpRight className={styles.btnIcon} />
+          </a>
+          <Link to="/how-it-works" className={styles.btnGhost}>
+            <IconPlay className={styles.playIcon} />
+            How it works
+          </Link>
+        </div>
+
+        <a
+          href="#story"
+          className={styles.scrollCue}
+          aria-label="Scroll to Why Mantle"
+        >
+          <IconChevronDown className={styles.scrollCueIcon} />
+        </a>
+      </div>
+
+      <div className={styles.trustDock}>
+        <p className={styles.trustIntro}>
+          Melbourne · private clients · vetted trades
+        </p>
+        <div className={styles.trustLogos} aria-hidden="true">
+          <span className={styles.trustWord}>Insured</span>
+          <span className={styles.trustWord}>Vetted</span>
+          <span className={styles.trustWord}>Reports</span>
+          <span className={styles.trustWord}>Quiet</span>
+        </div>
       </div>
     </section>
   );

@@ -19,13 +19,14 @@ export function Footer() {
         <h4>Services</h4>
         <ul>
           <li>
-            <Link to="/services">Renovation Management</Link>
+            <Link to={{ pathname: "/", hash: "services" }}>
+              Home Maintenance
+            </Link>
           </li>
           <li>
-            <Link to="/services">Home Maintenance</Link>
-          </li>
-          <li>
-            <Link to="/services">Absentee Property</Link>
+            <Link to={{ pathname: "/", hash: "services" }}>
+              Absentee Property
+            </Link>
           </li>
         </ul>
       </div>
@@ -40,7 +41,10 @@ export function Footer() {
             <Link to="/how-it-works">How It Works</Link>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <Link to="/pricing">Pricing</Link>
+          </li>
+          <li>
+            <a href="/#contact">Contact</a>
           </li>
         </ul>
       </div>

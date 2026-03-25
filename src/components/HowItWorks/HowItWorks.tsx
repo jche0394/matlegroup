@@ -6,12 +6,14 @@ export function HowItWorks() {
     <section className={styles.section} id="how">
       <div className={styles.inner}>
         <div className={styles.header}>
-          <p className={styles.eyebrow}>The Process</p>
+          <p className={styles.eyebrow}>The process</p>
           <h2 className={styles.h2}>
-            From first conversation
-            <br />
-            to completely looked after.
+            Call, walkthrough, proposal — then we operate.
           </h2>
+          <p className={styles.headerIntro}>
+            Four steps before you commit. Scope and fees in writing — then we
+            run it.
+          </p>
         </div>
 
         <div className={styles.steps}>

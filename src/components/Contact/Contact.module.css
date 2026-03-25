@@ -1,10 +1,11 @@
 .section {
   background: var(--warm-white);
-  padding: 120px 60px;
+  padding: 6.5rem 60px 7.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(3rem, 8vw, 5.5rem);
+  align-items: start;
+  scroll-margin-top: 7.5rem;
 }
 
 .left .eyebrow {
@@ -18,11 +19,13 @@
 
 .h2 {
   font-family: "Playfair Display", serif;
-  font-size: 46px;
-  line-height: 1.2;
+  font-size: var(--heading-support);
+  line-height: 1.25;
   color: var(--black);
   font-weight: 400;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  max-width: 16ch;
+  text-wrap: balance;
 }
 
 .divider {
@@ -73,8 +76,8 @@
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--stone);
-  font-weight: 500;
+  color: var(--walnut);
+  font-weight: 600;
 }
 
 .field input,
@@ -184,9 +187,5 @@
 
   .formRow {
     grid-template-columns: 1fr;
-  }
-
-  .h2 {
-    font-size: 32px;
   }
 }

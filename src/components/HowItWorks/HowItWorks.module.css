@@ -1,6 +1,7 @@
 .section {
   background: var(--plaster);
   padding: 120px 60px;
+  scroll-margin-top: 7.5rem;
 }
 
 .inner {
@@ -24,9 +25,24 @@
 
 .h2 {
   font-family: "Playfair Display", serif;
-  font-size: 40px;
+  font-size: var(--heading-section);
   line-height: 1.2;
   color: var(--black);
+  font-weight: 400;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+.headerIntro {
+  margin-top: 1.5rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--walnut);
   font-weight: 400;
 }
 
@@ -50,11 +66,12 @@
 
 .stepNum {
   font-family: "Playfair Display", serif;
-  font-size: 42px;
+  font-size: clamp(2rem, 3vw, 2.375rem);
   color: var(--sand);
   font-style: italic;
   line-height: 1;
   padding-top: 4px;
+  opacity: 0.92;
 }
 
 .stepContent h3 {

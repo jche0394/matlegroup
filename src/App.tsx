@@ -1,24 +1,31 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { BrandStory } from "./components/BrandStory";
-import { Services } from "./components/Services";
 import { HomeServices } from "./components/Services/HomeServices";
 import { HowItWorks } from "./components/HowItWorks";
-import { PullQuote } from "./components/PullQuote";
+import { HomePricing } from "./components/Pricing/HomePricing";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 import { FaqPage } from "./pages/Faq/FaqPage";
 import { HowItWorksPage } from "./pages/HowItWorks/HowItWorksPage";
+import { PricingPage } from "./pages/Pricing/PricingPage";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const id = hash.replace(/^#/, "");
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      });
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 
@@ -29,16 +36,7 @@ function HomePage() {
       <BrandStory />
       <HomeServices />
       <HowItWorks />
-      <PullQuote />
-      <Contact />
-    </main>
-  );
-}
-
-function ServicesPage() {
-  return (
-    <main>
-      <Services />
+      <HomePricing />
       <Contact />
     </main>
   );
@@ -568,9 +566,13 @@ export function App() {
       <FirstVisitModal />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage />} />
+        <Route
+          path="/services"
+          element={<Navigate to={{ pathname: "/", hash: "services" }} replace />}
+        />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/faq" element={<FaqPage />} />
          <Route path="/privacy" element={<PrivacyPage />} />
          <Route path="/terms" element={<TermsPage />} />
