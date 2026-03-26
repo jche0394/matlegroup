@@ -13,6 +13,7 @@ import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 import { FaqPage } from "./pages/Faq/FaqPage";
 import { HowItWorksPage } from "./pages/HowItWorks/HowItWorksPage";
 import { PricingPage } from "./pages/Pricing/PricingPage";
+import { SitemapPage } from "./pages/Sitemap/SitemapPage";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -576,6 +577,7 @@ export function App() {
         <Route path="/faq" element={<FaqPage />} />
          <Route path="/privacy" element={<PrivacyPage />} />
          <Route path="/terms" element={<TermsPage />} />
+        <Route path="/sitemap" element={<SitemapPage />} />
       </Routes>
       <Footer />
       <Analytics />

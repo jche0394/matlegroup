@@ -58,6 +58,9 @@ export function Footer() {
             </a>
           </li>
           <li>
+            <a href="tel:+61452582058">0452 582 058</a>
+          </li>
+          <li>
             <span>Melbourne, Victoria</span>
           </li>
         </ul>
@@ -65,12 +68,13 @@ export function Footer() {
 
       <div className={styles.bottom}>
         <p className={styles.legal}>
-          &copy; 2025 Mantle Home Management. All rights reserved.
+          &copy; 2026 Mantle Home Management. All rights reserved.
         </p>
         <p className={styles.abn}>
           ABN 57 630 047 694 ·{" "}
           <Link to="/privacy">Privacy Policy</Link> ·{" "}
-          <Link to="/terms">Terms of Service</Link>
+          <Link to="/terms">Terms of Service</Link> ·{" "}
+          <Link to="/sitemap">Sitemap</Link>
         </p>
       </div>
     </footer>

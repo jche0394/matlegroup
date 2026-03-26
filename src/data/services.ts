@@ -48,9 +48,9 @@ export const services: Service[] = [
     ],
     differentiator:
       "A proactive maintenance calendar tailored to your specific property. We identify problems before you ever notice them.",
-    imageSrc: "https://picsum.photos/seed/mantle-home/960/640",
+    imageSrc: "/lifestyle.jpg",
     imageAlt:
-      "Placeholder image: warm interior of a well-maintained residence",
+      "Lifestyle home maintenance: warm, well-kept living space in a prestige Melbourne home",
   },
   {
     num: "03",
@@ -68,8 +68,8 @@ export const services: Service[] = [
     ],
     differentiator:
       "Optional weekly video walkthroughs, delivered on a schedule you set — visibility without flying home for every detail.",
-    imageSrc: "https://picsum.photos/seed/mantle-away/960/640",
+    imageSrc: "/absentee.jpg",
     imageAlt:
-      "Placeholder image: residential street and property viewed from approach",
+      "Absentee property: Melbourne residence and approach for remote oversight",
   },
 ];

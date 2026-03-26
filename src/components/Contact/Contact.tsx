@@ -1,11 +1,20 @@
 import type { FormEvent } from "react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { services } from "../../data/services";
 import styles from "./Contact.module.css";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState<string>("");
+
+  const enquiryReasons = useMemo(
+    () => [
+      ...services.map((s) => ({ value: s.title, label: s.title })),
+      { value: "Not sure yet", label: "Not sure yet" },
+    ],
+    [],
+  );
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,6 +27,7 @@ export function Contact() {
       name: (data.get("name") || "").toString(),
       email: (data.get("email") || "").toString(),
       phone: (data.get("phone") || "").toString(),
+      reason: (data.get("reason") || "").toString(),
       message: (data.get("message") || "").toString(),
     };
 
@@ -81,10 +91,37 @@ export function Contact() {
           </div>
 
           <div className={styles.field}>
-            <label>Message</label>
+            <label htmlFor="contact-reason">What brings you to Mantle?</label>
+            <div className={styles.selectWrap}>
+              <select
+                id="contact-reason"
+                name="reason"
+                required
+                defaultValue=""
+                aria-required="true"
+              >
+                <option value="" disabled>
+                  Select an option
+                </option>
+                {enquiryReasons.map(({ value, label }) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="contact-message">
+              Additional information{" "}
+              <span className={styles.optionalMark}>(optional)</span>
+            </label>
             <textarea
+              id="contact-message"
               name="message"
-              placeholder="Renovation, retainer, or away-from-home oversight…"
+              placeholder="Anything else you would like us to know…"
+              rows={4}
             />
           </div>
 

@@ -107,8 +107,7 @@ export function Hero() {
         </h1>
 
         <p className={styles.sub}>
-          Your advocate on site. Proactive upkeep. Eyes on your property when
-          you&apos;re away — clear updates, no noise.
+          Complete home management for Melbourne&apos;s prestige properties.
         </p>
 
         <div className={styles.actions}>

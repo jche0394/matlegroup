@@ -1,0 +1,179 @@
+.page {
+  background: var(--warm-white);
+  min-height: 100vh;
+  padding: clamp(5.75rem, 12vw, 7.5rem) clamp(1.25rem, 4vw, 2rem)
+    clamp(4rem, 10vw, 5.5rem);
+}
+
+.inner {
+  max-width: 38rem;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.25rem);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4.5vw, 2.65rem);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1.15;
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  margin: 0 auto;
+  max-width: 34ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--walnut);
+  font-weight: 400;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 2.75rem);
+}
+
+.group {
+  padding: clamp(1.35rem, 3vw, 1.65rem) clamp(1.25rem, 3vw, 1.5rem);
+  border-radius: 18px;
+  border: 1px solid rgba(140, 123, 107, 0.2);
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(232, 224, 212, 0.35) 100%
+  );
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 14px 36px rgba(28, 25, 23, 0.06);
+}
+
+.groupHead {
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(140, 123, 107, 0.15);
+}
+
+.groupEyebrow {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.groupTitle {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(140, 123, 107, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  color: var(--black);
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.linkText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+}
+
+.linkLabel {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.link:hover {
+  border-color: rgba(140, 123, 107, 0.32);
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(28, 25, 23, 0.07);
+}
+
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+
+.linkHint {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(92, 79, 66, 0.78);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.linkArrow {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--sand);
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.footerNote {
+  margin: 2.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(140, 123, 107, 0.18);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--stone);
+  max-width: 36ch;
+}
+
+.footerNote a {
+  color: var(--walnut);
+  font-weight: 500;
+}
+
+.footerNote a:hover {
+  color: var(--black);
+}
+

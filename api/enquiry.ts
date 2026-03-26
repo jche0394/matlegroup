@@ -9,17 +9,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  const { name, email, phone, message } = req.body as {
+  const { name, email, phone, reason, message } = req.body as {
     name?: string;
     email?: string;
     phone?: string;
+    reason?: string;
     message?: string;
   };
 
-  if (!name || !email || !message) {
+  if (!name || !email || !reason) {
     res.status(400).json({ error: "Missing required fields" });
     return;
   }
+
+  const extra =
+    typeof message === "string" && message.trim() !== ""
+      ? ["", "Additional information:", message.trim()]
+      : [];
 
   try {
     await resend.emails.send({
@@ -32,8 +38,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         `Email: ${email}`,
         phone ? `Phone: ${phone}` : "",
         "",
-        "Message:",
-        message,
+        "What brings you to Mantle:",
+        reason,
+        ...extra,
       ]
         .filter(Boolean)
         .join("\n"),

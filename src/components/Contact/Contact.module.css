@@ -101,12 +101,40 @@
 
 .field textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 88px;
 }
 
 .field select {
   appearance: none;
   cursor: pointer;
+  width: 100%;
+  padding-right: 42px;
+}
+
+.optionalMark {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: var(--stone);
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -2px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--stone);
+  pointer-events: none;
+  opacity: 0.85;
 }
 
 .submit {
