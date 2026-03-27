@@ -1,12 +1,21 @@
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { ConsultationBookingForm } from "../../components/ConsultationBookingForm";
+import { Threads } from "../../components/Threads";
 import styles from "./HowItWorksPage.module.css";
 
 type Step = {
   title: string;
   description: string;
 };
+
+/** RGB 0–1 — Mantle stone (#8c7b6b) for thread lines on warm-white */
+const HOW_IT_WORKS_THREADS_COLOR: [number, number, number] = [
+  140 / 255,
+  123 / 255,
+  107 / 255,
+];
 
 const steps: Step[] = [
   {
@@ -30,8 +39,6 @@ const steps: Step[] = [
       "Over time, we learn your sanctuary. The experience becomes effortless: fewer decisions, calmer weeks, and a home that remains pristine without the mental load.",
   },
 ];
-
-const CALENDLY_URL = "https://calendly.com/mantlegroupau";
 
 /** Rough model: coordination slider = hours/month you spend on calls, schedules, site visits. */
 const PROPERTY_PROFILE = {
@@ -92,53 +99,7 @@ export function HowItWorksPage() {
   );
   const [showDiscretion, setShowDiscretion] = useState(false);
 
-  const calendlyContainerRef = useRef<HTMLDivElement | null>(null);
   const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
-
-  useEffect(() => {
-    if (!showBooking) return;
-    const existing = document.querySelector<HTMLScriptElement>(
-      'script[src="https://assets.calendly.com/assets/external/widget.js"]',
-    );
-
-    const ensureScript = () =>
-      new Promise<void>((resolve) => {
-        if (existing) {
-          resolve();
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = "https://assets.calendly.com/assets/external/widget.js";
-        script.async = true;
-        script.onload = () => resolve();
-        document.body.appendChild(script);
-      });
-
-    const init = async () => {
-      await ensureScript();
-      const win = window as typeof window & {
-        Calendly?: {
-          initInlineWidget: (options: {
-            url: string;
-            parentElement: HTMLElement;
-            prefill?: Record<string, unknown>;
-            utm?: Record<string, unknown>;
-          }) => void;
-        };
-      };
-      if (!win.Calendly || !calendlyContainerRef.current) return;
-
-      calendlyContainerRef.current.innerHTML = "";
-      win.Calendly.initInlineWidget({
-        url: CALENDLY_URL,
-        parentElement: calendlyContainerRef.current,
-        prefill: {},
-        utm: {},
-      });
-    };
-
-    void init();
-  }, [showBooking]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -260,44 +221,45 @@ export function HowItWorksPage() {
 
   return (
     <main className={styles.page}>
-      <header className={styles.hero}>
+      <header className={styles.heroShell}>
         <div className={styles.heroMedia} aria-hidden="true">
-          <video
-            className={styles.heroVideo}
-            src="/hero-video.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-          <div className={styles.heroVignette} />
+          <div className={styles.heroThreads}>
+            <Threads
+              color={HOW_IT_WORKS_THREADS_COLOR}
+              amplitude={1.8}
+              distance={0.5}
+              enableMouseInteraction={true}
+            />
+          </div>
         </div>
-        <p className={styles.eyebrow}>How it works</p>
-        <h1 className={styles.h1}>
-          A bespoke way to keep your home
-          <br />
-          pristine — without the mental load.
-        </h1>
-        <p className={styles.sub}>
-          You&rsquo;re not hiring a cleaner. You&rsquo;re reclaiming time — with a
-          seamless, curated service that protects your sanctuary through
-          discretion and quiet excellence.
-        </p>
+        <div className={styles.hero}>
+          <p className={styles.eyebrow}>How it works</p>
+          <h1 className={styles.h1}>
+            A bespoke way to keep your home
+            <br />
+            pristine — without the mental load.
+          </h1>
+          <p className={styles.sub}>
+            You&rsquo;re not hiring a cleaner. You&rsquo;re reclaiming time — with a
+            seamless, curated service that protects your sanctuary through
+            discretion and quiet excellence.
+          </p>
 
-        <div className={styles.heroActions}>
-          <button
-            type="button"
-            className={styles.primary}
-            onClick={() => setShowBooking(true)}
-          >
-            Book a private consultation
-          </button>
-          <Link
-            className={styles.secondary}
-            to={{ pathname: "/", hash: "services" }}
-          >
-            Explore services
-          </Link>
+          <div className={styles.heroActions}>
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={() => setShowBooking(true)}
+            >
+              Book a private consultation
+            </button>
+            <Link
+              className={styles.secondary}
+              to={{ pathname: "/", hash: "services" }}
+            >
+              Explore services
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -635,7 +597,15 @@ export function HowItWorksPage() {
             >
               ×
             </button>
-            <div className={styles.calendly} ref={calendlyContainerRef} />
+            <div className={`${styles.bookingModalInner} customScrollbar`}>
+              <p className={styles.bookingModalEyebrow}>Private consultation</p>
+              <h2 className={styles.bookingModalTitle}>Request a time</h2>
+              <p className={styles.bookingModalLead}>
+                We&apos;ll confirm your appointment directly — usually within one
+                business day.
+              </p>
+              <ConsultationBookingForm source="how-it-works-modal" />
+            </div>
           </div>
         </div>
       )}

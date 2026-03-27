@@ -42,6 +42,7 @@ const groups: SitemapGroup[] = [
     title: "Main pages",
     items: [
       { to: "/how-it-works", label: "How it works", hint: "Full guide" },
+      { to: "/book", label: "Book a consultation", hint: "Request a call" },
       { to: "/pricing", label: "Pricing", hint: "Dedicated page" },
       { to: "/faq", label: "FAQ", hint: "Answers" },
     ],

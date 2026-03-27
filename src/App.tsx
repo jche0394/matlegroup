@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { FirstVisitModal } from "./components/FirstVisitModal/FirstVisitModal";
 import { FaqPage } from "./pages/Faq/FaqPage";
 import { HowItWorksPage } from "./pages/HowItWorks/HowItWorksPage";
+import { BookingPage } from "./pages/Booking/BookingPage";
 import { PricingPage } from "./pages/Pricing/PricingPage";
 import { SitemapPage } from "./pages/Sitemap/SitemapPage";
 
@@ -572,6 +573,7 @@ export function App() {
           element={<Navigate to={{ pathname: "/", hash: "services" }} replace />}
         />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/book" element={<BookingPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/faq" element={<FaqPage />} />

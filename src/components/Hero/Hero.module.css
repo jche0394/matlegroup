@@ -23,7 +23,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.92;
+  opacity: 1;
   filter: saturate(1.05) contrast(1.03);
 }
 
@@ -45,7 +45,7 @@
   min-height: 100vh;
   transform: translate(-50%, -50%);
   border: 0;
-  opacity: 0.92;
+  opacity: 1;
   filter: saturate(1.05) contrast(1.03);
 }
 

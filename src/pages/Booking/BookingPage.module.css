@@ -1,0 +1,59 @@
+.page {
+  min-height: calc(100vh - 200px);
+  padding: clamp(100px, 12vw, 140px) 60px 100px;
+  background: var(--warm-white);
+}
+
+.inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  line-height: 1.2;
+  color: var(--black);
+  font-weight: 400;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.lead {
+  color: var(--walnut);
+  line-height: 1.75;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0 0 40px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 36px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--walnut);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140, 123, 107, 0.35);
+  padding-bottom: 2px;
+}
+
+.back:hover {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 88px 24px 72px;
+  }
+}

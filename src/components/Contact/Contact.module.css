@@ -176,6 +176,8 @@
 .popup {
   position: relative;
   width: min(520px, calc(100% - 40px));
+  max-height: min(320px, calc(100vh - 48px));
+  overflow-y: auto;
   background: var(--warm-white);
   border: 1px solid rgba(140, 123, 107, 0.25);
   border-radius: 12px;

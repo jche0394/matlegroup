@@ -51,3 +51,28 @@ button {
     line-height: 1.6;
   }
 }
+
+/* Thin, on-brand scrollbar for modal / popup bodies (Firefox + WebKit) */
+.customScrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--stone) var(--plaster);
+}
+
+.customScrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  background: var(--plaster);
+  border-radius: 999px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: var(--stone);
+  border-radius: 999px;
+  border: 2px solid var(--plaster);
+}
+
+.customScrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--walnut);
+}

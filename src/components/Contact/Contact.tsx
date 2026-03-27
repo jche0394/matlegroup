@@ -136,7 +136,10 @@ export function Contact() {
           className={styles.popupBackdrop}
           onClick={() => setShowPopup(false)}
         >
-          <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
+          <div
+            className={`${styles.popup} customScrollbar`}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className={styles.popupClose}
