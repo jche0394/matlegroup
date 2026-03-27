@@ -33,6 +33,55 @@ const steps: Step[] = [
 
 const CALENDLY_URL = "https://calendly.com/mantlegroupau";
 
+/** Rough model: coordination slider = hours/month you spend on calls, schedules, site visits. */
+const PROPERTY_PROFILE = {
+  Simple: {
+    coordinationReclaimed: 0.88,
+    hoursPerProvider: 0.42,
+    planningHours: 1.75,
+  },
+  Standard: {
+    coordinationReclaimed: 0.85,
+    hoursPerProvider: 0.55,
+    planningHours: 3.25,
+  },
+  Complex: {
+    coordinationReclaimed: 0.82,
+    hoursPerProvider: 0.72,
+    planningHours: 5.25,
+  },
+} as const;
+
+/** Integers that sum to `total`, proportional to raw (non-negative) weights. */
+function allocateRoundedBreakdown(
+  total: number,
+  weights: readonly [number, number, number],
+): [number, number, number] {
+  const [w0, w1, w2] = weights;
+  const wsum = w0 + w1 + w2;
+  if (total <= 0 || wsum <= 0) return [0, 0, 0];
+
+  const exact: [number, number, number] = [
+    (w0 / wsum) * total,
+    (w1 / wsum) * total,
+    (w2 / wsum) * total,
+  ];
+  const floors: [number, number, number] = [
+    Math.floor(exact[0]),
+    Math.floor(exact[1]),
+    Math.floor(exact[2]),
+  ];
+  let rem = total - floors[0] - floors[1] - floors[2];
+  const order = [0, 1, 2].sort(
+    (i, j) => exact[j]! - floors[j]! - (exact[i]! - floors[i]!),
+  );
+  const out: [number, number, number] = [...floors];
+  for (let k = 0; k < rem; k++) {
+    out[order[k]!] += 1;
+  }
+  return out;
+}
+
 export function HowItWorksPage() {
   const [showBooking, setShowBooking] = useState(false);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
@@ -191,14 +240,21 @@ export function HowItWorksPage() {
   );
 
   const reclaimed = useMemo(() => {
-    const cf =
-      complexity === "Simple" ? 0.9 : complexity === "Complex" ? 1.14 : 1;
-    const coordPart = Math.round(hoursCoord * 0.85 * cf);
-    const provPart = Math.round(providers * 0.72 * cf);
-    const planPart = Math.round(
-      (complexity === "Simple" ? 2 : complexity === "Complex" ? 5 : 3.5) * cf,
-    );
-    const total = Math.max(4, coordPart + provPart + planPart);
+    const cfg = PROPERTY_PROFILE[complexity];
+    const coordRaw = hoursCoord * cfg.coordinationReclaimed;
+    const provRaw = providers * cfg.hoursPerProvider;
+    const hasActivity = hoursCoord > 0 || providers > 0;
+    const planRaw = hasActivity ? cfg.planningHours : 0;
+
+    const totalHours = Math.max(0, coordRaw + provRaw + planRaw);
+    const total = Math.round(totalHours);
+
+    const [coordPart, provPart, planPart] = allocateRoundedBreakdown(total, [
+      coordRaw,
+      provRaw,
+      planRaw,
+    ]);
+
     return { total, coordPart, provPart, planPart };
   }, [complexity, hoursCoord, providers]);
 
